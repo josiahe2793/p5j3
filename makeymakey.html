@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+    var clouds = [];
+    var x = 400
+    var y = 400
+   
+
+    function setup() {
+      createCanvas(800, 600);
+      fill(0)
+      line(0,0,width/2,height/2)
+
+      clouds[i] = new Cloud;
+
+      for (var i = 0; i < 4; i++) {
+        clouds.push(new Cloud());
+      }
+
+    }
+
+    function draw() {
+      background(61, 135, 255);
+      
+       
+                
+      
+       
+       fill(255);
+       textSize(75);
+       text("War of Tugs",200,200);
+       fill(39, 140, 88)
+       rect(-1,400,width,200)
+       fill(255)
+       console.log(x)
+       
+        fill(255,100,0)
+        ellipse(x,y,100,100);
+        
+        
+        if(x >750 ){
+        fill(255)
+        textSize(20)
+         text("PLAYER 2 WINS!",600,height/2);
+          
+        }
+         
+         if(x < 50){
+        fill(255)
+        textSize(20)
+         text("PLAYER 1 WINS!",50,height/2);
+            
+         }
+
+
+      for (var i = 0; i < clouds.length; i++) {
+        clouds[i].move();
+        clouds[i].display();
+      }
+      
+      
+       
+      }
+
+    function Cloud() {
+      this.x = random(width);
+      this.y = random(50,200);
+      this.speed = random(0, 3);
+
+      this.move = function() {
+        this.x += this.speed;
+        if (this.x > width) {
+          this.x = 0;
+        }
+      }
+
+      this.display = function() {
+        fill(255);
+        ellipse(this.x, this.y, 100, 50);
+      }
+
+ 
+    }
+       function keyPressed(){
+    if(keyCode === RIGHT_ARROW){
+        x+=10
+    }
+         
+         if(keyCode === LEFT_ARROW){
+        x-=10}
+    
+       
+       }
+
+    </script>
+</head>
+
+<body>
+   <form><input TYPE="button" onClick="history.go(0)" value="Play Again"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/USERNAME/p5js/blob/gh-pages/makeymakey.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+
+
+</body>
+
+</html>
